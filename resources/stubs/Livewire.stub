@@ -50,6 +50,6 @@ class {{modelNamePlural}}Table extends LivewireHelper
 
 	public function paginationView()
 	{
-		return 'partials.pagination';
+		return 'components.pagination';
 	}
 }

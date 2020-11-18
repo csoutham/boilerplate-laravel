@@ -1,44 +1,48 @@
-<x-internal-layout>
-	<x-slot name="pageTitle">Add a {{modelNameSingularLowerCase}}</x-slot>
+<x-app-layout>
+	<x-slot name="header">
+		<h2 class="text-2xl text-gray-800 title">Add {{modelNameSingularLowerCase}}</h2>
+	</x-slot>
 	
-	<div class="max-w-2xl pt-4">
-		<form action="{{ action('{{actionPrefix}}{{modelNamePlural}}Controller@store') }}" method="post">
-			@method('POST')
-			@csrf
-			
-			<div class="flex flex-wrap mb-6">
-				@include('components.forms.input', [
-				   'type' => 'text',
-				   'label' => __('Name'),
-				   'name' => 'name',
-				   'placeholder' => __('Name'),
-				   'value' => old('name'),
-				   'required' => true,
-				   'params' => ['minlength' => 4, 'maxlength' => 160],
-				   'errors' => $errors,
-				])
-			</div>
-			
-			<div class="flex flex-wrap mb-8">
-				<div class="w-64">
-					@include('components.forms.select', [
-					   'label' => __('Status'),
-					   'name' => 'status',
-					   'data' => $statuses,
-					   'value' => old('status', 'published'),
-					   'required' => true,
-					   'errors' => $errors,
-					   'modifier' => 'ucfirst-values',
-					])
-				</div>
-			</div>
-			
-			<div class="flex flex-wrap">
-				@include('components.forms.button', [
-					'type' => 'submit',
-					'text' => __('Create {{modelNameSingularLowerCaseFirst}}')
-				])
-			</div>
-		</form>
-	</div>
-</x-internal-layout>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
+        <div class="px-4 py-4 bg-white overflow-hidden shadow-sm sm:rounded-md">
+            <form action="{{ action('{{actionPrefix}}{{modelNamePlural}}Controller@store') }}" method="post">
+                @method('POST')
+                @csrf
+                
+                <div class="flex flex-wrap mb-6">
+                    @include('components.forms.input', [
+                       'type' => 'text',
+                       'label' => __('Name'),
+                       'name' => 'name',
+                       'placeholder' => __('Name'),
+                       'value' => old('name'),
+                       'required' => true,
+                       'params' => ['minlength' => 4, 'maxlength' => 160],
+                       'errors' => $errors,
+                    ])
+                </div>
+                
+                <div class="flex flex-wrap mb-8">
+                    <div class="w-64">
+                        @include('components.forms.select', [
+                           'label' => __('Status'),
+                           'name' => 'status',
+                           'data' => $statuses,
+                           'value' => old('status', 'published'),
+                           'required' => true,
+                           'errors' => $errors,
+                           'modifier' => 'ucfirst-values',
+                        ])
+                    </div>
+                </div>
+                
+                <div class="flex flex-wrap">
+                    @include('components.forms.button', [
+                        'type' => 'submit',
+                        'text' => __('Create {{modelNameSingularLowerCaseFirst}}')
+                    ])
+                </div>
+            </form>
+        </div>
+    </div>
+</x-app-layout>
