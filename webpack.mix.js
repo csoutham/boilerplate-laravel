@@ -1,4 +1,8 @@
 const mix = require('laravel-mix');
+const domain = 'laravel.test';
+const homedir = require('os').homedir();
+
+require('laravel-mix-tailwind');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,6 +16,22 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+	.postCss('resources/css/app.css', 'public/css', [
+		require('postcss-import'),
+		require('tailwindcss'),
+	])
+	.webpackConfig(require('./webpack.config'));
+
+mix.browserSync({
+	proxy: 'https://' + domain,
+	host: domain,
+	open: 'external',
+	https: {
+		key: homedir + '/.config/valet/Certificates/' + domain + '.key',
+		cert: homedir + '/.config/valet/Certificates/' + domain + '.crt',
+	},
+});
+
+if (mix.inProduction()) {
+	mix.version();
+}

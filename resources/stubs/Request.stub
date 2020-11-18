@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Requests{{namespace}}\{{modelNamePlural}};
+
+use App\Models\{{modelName}};
+use Illuminate\Foundation\Http\FormRequest;
+
+class {{modelName}}{{crudOperation}}Request extends FormRequest
+{
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function rules()
+    {
+        return {{rules}};
+    }
+}

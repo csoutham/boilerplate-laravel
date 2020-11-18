@@ -1,0 +1,7 @@
+<x-internal-layout>
+	<x-slot name="pageTitle">{{ ${{modelNameSingularLowerCaseFirst}}->name }}</x-slot>
+	
+	<div class="max-w-2xl pt-4">
+		
+	</div>
+</x-internal-layout>

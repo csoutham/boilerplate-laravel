@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Http\Controllers{{namespace}};
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests{{namespace}}\{{modelNamePlural}}\{{modelName}}IndexRequest;
+use App\Http\Requests{{namespace}}\{{modelNamePlural}}\{{modelName}}CreateRequest;
+use App\Http\Requests{{namespace}}\{{modelNamePlural}}\{{modelName}}StoreRequest;
+use App\Http\Requests{{namespace}}\{{modelNamePlural}}\{{modelName}}ShowRequest;
+use App\Http\Requests{{namespace}}\{{modelNamePlural}}\{{modelName}}EditRequest;
+use App\Http\Requests{{namespace}}\{{modelNamePlural}}\{{modelName}}UpdateRequest;
+use App\Http\Requests{{namespace}}\{{modelNamePlural}}\{{modelName}}DestroyRequest;
+use App\Models\{{modelName}};
+
+class {{modelNamePlural}}Controller extends Controller
+{
+	public function index({{modelName}}IndexRequest $request)
+	{
+		return view('{{folderPrefix}}{{modelNamePluralSnakeCase}}.index');
+	}
+
+	public function create({{modelName}}CreateRequest $request)
+	{
+		$statuses = {{modelName}}::STATUSES;
+        		
+        return view('{{folderPrefix}}{{modelNamePluralSnakeCase}}.create', compact('statuses'));
+	}
+
+	public function store({{modelName}}StoreRequest $request)
+	{
+		$validated = $request->validated();
+        		
+        {{modelName}}::create($validated);
+
+        return redirect()->action('{{actionPrefix}}{{modelNamePlural}}Controller@index')->with('success', 'You have successfully created a {{modelNameSingularLowerCase}}.');
+	}
+
+	public function show({{modelName}}ShowRequest $request, {{modelName}} ${{modelNameSingularLowerCaseFirst}})
+	{
+		return view('{{folderPrefix}}{{modelNamePluralSnakeCase}}.show', compact('{{modelNameSingularLowerCaseFirst}}'));
+	}
+
+	public function edit({{modelName}}EditRequest $request, {{modelName}} ${{modelNameSingularLowerCaseFirst}})
+	{
+		$statuses = {{modelName}}::STATUSES;
+                		
+        return view('{{folderPrefix}}{{modelNamePluralSnakeCase}}.edit', compact('{{modelNameSingularLowerCaseFirst}}', 'statuses'));
+	}
+
+	public function update({{modelName}}UpdateRequest $request, {{modelName}} ${{modelNameSingularLowerCaseFirst}})
+	{
+		$validated = $request->validated();
+        
+        ${{modelNameSingularLowerCaseFirst}}->update($validated);
+        
+        return redirect()->action('{{actionPrefix}}{{modelNamePlural}}Controller@index')->with('success', 'You have successfully updated a {{modelNameSingularLowerCase}}.');
+	}
+
+	public function destroy({{modelName}}DestroyRequest $request, {{modelName}} ${{modelNameSingularLowerCaseFirst}})
+	{
+		${{modelNameSingularLowerCaseFirst}}->delete();
+		
+		return redirect()->action('{{actionPrefix}}{{modelNamePlural}}Controller@index')->with('success', 'You have successfully deleted a {{modelNameSingularLowerCase}}.');
+	}
+}

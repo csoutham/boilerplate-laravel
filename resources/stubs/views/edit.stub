@@ -1,0 +1,44 @@
+<x-internal-layout>
+	<x-slot name="pageTitle">{{ ${{modelNameSingularLowerCaseFirst}}->name }}</x-slot>
+	
+	<div class="max-w-2xl pt-4">
+		<form action="{{ action('{{actionPrefix}}{{modelNamePlural}}Controller@update', ${{modelNameSingularLowerCaseFirst}}) }}" method="post">
+			@method('PUT')
+			@csrf
+			
+			<div class="flex flex-wrap mb-6">
+				@include('components.forms.input', [
+				   'type' => 'text',
+				   'label' => __('Name'),
+				   'name' => 'name',
+				   'placeholder' => __('Name'),
+				   'value' => old('name', ${{modelNameSingularLowerCaseFirst}}->name),
+				   'required' => true,
+				   'params' => ['minlength' => 4, 'maxlength' => 160],
+				   'errors' => $errors,
+				])
+			</div>
+			
+			<div class="flex flex-wrap mb-8">
+				<div class="w-64">
+					@include('components.forms.select', [
+					   'label' => __('Status'),
+					   'name' => 'status',
+					   'data' => $statuses,
+					   'value' => old('status', ${{modelNameSingularLowerCaseFirst}}->status),
+					   'required' => true,
+					   'errors' => $errors,
+					   'modifier' => 'ucfirst-values',
+					])
+				</div>
+			</div>
+			
+			<div class="flex flex-wrap">
+				@include('components.forms.button', [
+					'type' => 'submit',
+					'text' => __('Update {{modelNameSingularLowerCaseFirst}}')
+				])
+			</div>
+		</form>
+	</div>
+</x-internal-layout>

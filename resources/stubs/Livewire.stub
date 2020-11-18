@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Http\Livewire{{namespace}};
+
+use App\Http\Livewire\LivewireHelper;
+use App\Models\{{modelName}};
+use Livewire\WithPagination;
+
+class {{modelNamePlural}}Table extends LivewireHelper
+{
+	use WithPagination;
+
+	public $perPage = 30;
+	public $sortField = 'name';
+	public $sortAsc = true;
+	public $status = null;
+	public $search = '';
+
+	protected $queryString = ['status'];
+
+	public function updatingSearch()
+	{
+		$this->resetPage();
+	}
+
+	public function sortBy($field)
+	{
+		if ($this->sortField === $field) {
+			$this->sortAsc = !$this->sortAsc;
+		} else {
+			$this->sortAsc = true;
+		}
+
+		$this->sortField = $field;
+	}
+
+	public function render()
+	{
+		${{modelNamePluralLowerCaseFirst}} = {{modelName}}::searchableProperties($this->search)
+		                         ->filterBy('status', $this->status)
+		                         ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+		                         ->get();
+		                         
+        $statuses = {{modelName}}::STATUSES;
+
+		${{modelNamePluralLowerCaseFirst}} = $this->paginateCollection(${{modelNamePluralLowerCaseFirst}}, $this->perPage);
+
+		return view('livewire.{{folderPrefix}}{{modelNamePluralKebabCase}}-table', compact('{{modelNamePluralLowerCaseFirst}}', 'statuses'));
+	}
+
+	public function paginationView()
+	{
+		return 'partials.pagination';
+	}
+}

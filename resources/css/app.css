@@ -1,0 +1,74 @@
+@import 'tailwindcss/base';
+
+@import url('https://fonts.googleapis.com/css2?family=Ovo&family=Quattrocento+Sans:wght@400;700&display=swap');
+
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+	[x-cloak] { display: none; }
+	
+	/* Titles */
+	.title {
+		@apply font-sans-title tracking-tight
+	}
+
+	/* Buttons */
+	.button {
+		@apply inline-block px-6 py-2 text-base font-bold leading-normal text-center no-underline whitespace-no-wrap align-middle rounded select-none  transition duration-300 ease-in-out
+	}
+
+	.button:hover {
+		@apply bg-opacity-80 border-opacity-80
+	}
+
+	.button:disabled {
+		@apply bg-gray-200 border-gray-200 cursor-not-allowed
+	}
+
+	.button-primary {
+		@apply border-2 border-blue-600 text-white bg-blue-600
+	}
+
+	.button-secondary {
+		@apply border-2 border-blue-600 text-blue-600 font-semibold text-base
+	}
+	
+	.button-danger {
+		@apply border-2 border-red-600 text-white bg-red-600
+	}
+
+	/* Tables */
+	.column-header {
+		@apply text-sm pr-8 text-left text-gray-600 font-semibold py-4
+	}
+
+	@media (min-width: 768px) {
+		.column-header {
+			@apply text-base
+		}
+	}
+
+	.column-body {
+		@apply py-5 pr-8 font-normal text-sm text-left text-gray-900
+	}
+
+	@media (min-width: 768px) {
+		.column-body {
+			@apply text-base
+		}
+	}
+
+	/* Dropdown Menu */
+	.dropdown-item {
+		@apply block px-4 py-2 text-sm leading-normal text-gray-700
+	}
+
+	.dropdown-item:hover {
+		@apply bg-gray-100 text-gray-900
+	}
+
+	.dropdown-item:focus {
+		@apply outline-none bg-gray-100 text-gray-900
+	}
+}

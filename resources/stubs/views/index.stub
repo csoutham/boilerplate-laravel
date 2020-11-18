@@ -1,0 +1,12 @@
+<x-internal-layout>
+	<x-slot name="pageTitle">{{modelNamePlural}}</x-slot>
+	
+	<x-slot name="pageButton">
+		<a href="{{ action('{{actionPrefix}}{{modelNamePlural}}Controller@create') }}"
+		   class="inline-block px-4 py-1 text-base font-semibold leading-normal text-center text-white no-underline whitespace-no-wrap align-middle bg-black rounded-lg select-none hover:bg-gray-600">
+			Add {{modelName}}
+		</a>
+	</x-slot>
+	
+	@livewire('{{folderPrefix}}{{modelNamePluralKebabCase}}-table')
+</x-internal-layout>

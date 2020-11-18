@@ -1,0 +1,36 @@
+<?php
+
+use App\Models\{{modelName}};
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class Create{{modelNamePlural}}Table extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('{{modelNamePluralSnakeCase}}', function (Blueprint $table) {
+            $table->id('id');
+            $table->string('name')->index();
+            $table->enum('status', {{modelName}}::STATUSES)->index();
+            $table->timestamps();
+            $table->softDeletes();
+            $table->uuid('uuid')->index();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('{{modelNamePluralSnakeCase}}');
+    }
+}
