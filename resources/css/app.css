@@ -10,7 +10,7 @@
 	
 	/* Titles */
 	.title {
-		@apply font-sans-title tracking-tight
+		@apply font-display tracking-tight
 	}
 
 	/* Buttons */

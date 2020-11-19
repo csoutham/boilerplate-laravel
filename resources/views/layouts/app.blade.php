@@ -14,7 +14,7 @@
         <livewire:styles />
         @stack('styles')
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-body antialiased">
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-dropdown')
 
