@@ -124,7 +124,7 @@ class CrudGenerator extends Command
 		}
 
 		file_put_contents(app_path("/Http/Livewire/{$prefix}" . Str::plural($name) . 'Table.php'), $livewireTemplate);
-		
+
 		Artisan::call('livewire:discover');
 	}
 

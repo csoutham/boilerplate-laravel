@@ -11,7 +11,7 @@
 					x-show="alertOpen" @anim('tailwindui.modal.panel')>
 					<div>
 						<div class="flex items-center justify-center w-16 h-16 mx-auto bg-green-100 rounded-full">
-							<x-fas-check class="w-6 h-6 text-green-600" />
+							<x-heroicon-o-check class="w-6 h-6 text-green-600" />
 						</div>
 						<div class="mt-6 mb-8 text-center">
 							<h3 class="text-3xl font-bold leading-normal text-gray-800">{{ session('success') }}</h3>

@@ -19,7 +19,6 @@
     "honeybadger-io/honeybadger-laravel": "^3.2",
     "laravel/framework": "^8.12",
     "laravel/horizon": "^5.4",
-    "laravel/jetstream": "^1.6",
     "laravel/sanctum": "^2.8",
     "laravel/tinker": "^2.5",
     "livewire/livewire": "^2.0",
@@ -33,6 +32,7 @@
     "beyondcode/helo-laravel": "^1.1",
     "facade/ignition": "^2.5",
     "fakerphp/faker": "^1.9.1",
+    "laravel/breeze": "^0.0.5",
     "laravel/telescope": "^4.3",
     "mockery/mockery": "^1.4.2",
     "nunomaduro/collision": "^5.0",
@@ -68,7 +68,8 @@
     "post-autoload-dump": [
       "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
       "@php artisan package:discover --ansi",
-      "@php artisan vendor:publish --force --tag=livewire:assets --ansi"
+      "@php artisan vendor:publish --force --tag=livewire:assets --ansi",
+      "@php artisan ide-helper:generate"
     ],
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

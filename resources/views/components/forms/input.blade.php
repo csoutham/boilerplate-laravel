@@ -13,12 +13,13 @@
            type="{{ $type }}"
            name="{{ $name }}"
            autocomplete="{{ $name }}"
-           class="form-input w-full block text-sm lg:text-base rounded bg-gray-200 border-gray-200 focus:outline-none focus:bg-white focus:border-blue-600
+           class="form-input w-full block text-sm lg:text-base rounded bg-gray-100 border-gray-200 focus:outline-none focus:bg-white focus:border-blue-600
             @isset($inputClasses){{ $inputClasses }}@endisset
 			@if ($errors->has($name)) border-red-600 @endif"
            @isset($value) value="{{ $value }}" @endisset
            @isset($placeholder) placeholder="{{ $placeholder }}" @endisset
            @isset($required) required @endisset
+           @isset($autofocus) autofocus @endisset
            @isset($readonly) readonly disabled @endisset
     @isset($params)
        @foreach ($params as $paramKey => $paramValue)

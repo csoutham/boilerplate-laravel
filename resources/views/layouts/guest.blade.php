@@ -7,15 +7,14 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <script type="text/javascript" src="{{ mix('js/app.js') }}" defer></script>
     
         <livewire:styles />
         @stack('styles')
     </head>
-    <body>
-        <div class="text-gray-900 antialiased">
+    <body class="font-body antialiased">
+        <div class="min-h-screen bg-gray-100">
             {{ $slot }}
         </div>
 
