@@ -45,7 +45,10 @@ class {{modelNamePlural}}Table extends LivewireHelper
 
 		${{modelNamePluralLowerCaseFirst}} = $this->paginateCollection(${{modelNamePluralLowerCaseFirst}}, $this->perPage);
 
-		return view('livewire.{{folderPrefix}}{{modelNamePluralKebabCase}}-table', compact('{{modelNamePluralLowerCaseFirst}}', 'statuses'));
+		return view('livewire.{{folderPrefix}}{{modelNamePluralKebabCase}}-table')->with([
+		    '{{modelNamePluralLowerCaseFirst}}' => ${{modelNamePluralLowerCaseFirst}},
+		    'statuses' => $statuses,
+        ]);
 	}
 
 	public function paginationView()

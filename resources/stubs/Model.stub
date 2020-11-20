@@ -19,13 +19,13 @@ class {{modelName}} extends Model
 	];
 
 	public static $createRules = [
-		'name' => 'required|string|min:4|max:160',
-		'status' => 'required|in:draft,published',
+		'name' => ['required', 'string', 'min:4', 'max:160'],
+		'status' => ['required', 'in:draft,published'],
 	];
 
 	public static $updateRules = [
-		'name' => 'required|string|min:4|max:160',
-		'status' => 'required|in:draft,published',
+		'name' => ['required', 'string', 'min:4', 'max:160'],
+        'status' => ['required', 'in:draft,published'],
 	];
 
     protected $table = '{{modelNamePluralSnakeCase}}';
