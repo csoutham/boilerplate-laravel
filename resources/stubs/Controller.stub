@@ -32,7 +32,7 @@ class {{modelNamePlural}}Controller extends Controller
         		
         {{modelName}}::create($validated);
 
-        return redirect()->action('{{actionPrefix}}{{modelNamePlural}}Controller@index')->with('success', 'You have successfully created a {{modelNameSingularLowerCase}}.');
+        return redirect()->action('\App\Http\Controllers\{{actionPrefix}}{{modelNamePlural}}Controller@index')->with('success', 'You have successfully created a {{modelNameSingularLowerCase}}.');
 	}
 
 	public function show({{modelName}}ShowRequest $request, {{modelName}} ${{modelNameSingularLowerCaseFirst}})
@@ -53,13 +53,13 @@ class {{modelNamePlural}}Controller extends Controller
         
         ${{modelNameSingularLowerCaseFirst}}->update($validated);
         
-        return redirect()->action('{{actionPrefix}}{{modelNamePlural}}Controller@index')->with('success', 'You have successfully updated a {{modelNameSingularLowerCase}}.');
+        return redirect()->action('\App\Http\Controllers\{{actionPrefix}}{{modelNamePlural}}Controller@index')->with('success', 'You have successfully updated a {{modelNameSingularLowerCase}}.');
 	}
 
 	public function destroy({{modelName}}DestroyRequest $request, {{modelName}} ${{modelNameSingularLowerCaseFirst}})
 	{
 		${{modelNameSingularLowerCaseFirst}}->delete();
 		
-		return redirect()->action('{{actionPrefix}}{{modelNamePlural}}Controller@index')->with('success', 'You have successfully deleted a {{modelNameSingularLowerCase}}.');
+		return redirect()->action('\App\Http\Controllers\{{actionPrefix}}{{modelNamePlural}}Controller@index')->with('success', 'You have successfully deleted a {{modelNameSingularLowerCase}}.');
 	}
 }

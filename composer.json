@@ -84,7 +84,8 @@
       "@php artisan horizon:publish --ansi",
       "@php artisan telescope:clear",
       "@php artisan view:clear",
-      "@php artisan ide-helper:models --nowrite"
+      "@php artisan ide-helper:models --nowrite",
+      "@php artisan test --tests=Feature"
     ]
   }
 }

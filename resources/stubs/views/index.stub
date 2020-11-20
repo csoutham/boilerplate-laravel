@@ -5,7 +5,7 @@
 				{{modelNamePlural}}
 			</h2>
 				
-			<a href="{{ action('{{actionPrefix}}{{modelNamePlural}}Controller@create') }}" class="button button-secondary px-4 py-1">
+			<a href="{{ action('\App\Http\Controllers\{{actionPrefix}}{{modelNamePlural}}Controller@create') }}" class="button button-secondary px-4 py-1">
 				Add {{modelNameSingularLowerCase}}
 			</a>
 		</div>

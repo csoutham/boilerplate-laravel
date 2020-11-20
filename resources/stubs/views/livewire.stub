@@ -62,7 +62,7 @@
                         @foreach (${{modelNamePluralLowerCaseFirst}} as ${{modelNameSingularLowerCaseFirst}})
                             <tr class="hover:bg-gray-50">
                                 <td class="pl-4 column-body">
-                                    <a href="{{ action('{{actionPrefix}}{{modelNamePlural}}Controller@edit', ${{modelNameSingularLowerCaseFirst}}) }}" class="text-blue-600 font-semibold">
+                                    <a href="{{ action('\App\Http\Controllers\{{actionPrefix}}{{modelNamePlural}}Controller@edit', ${{modelNameSingularLowerCaseFirst}}) }}" class="text-blue-600 font-semibold">
                                         {{ ${{modelNameSingularLowerCaseFirst}}->name }}
                                     </a>
                                 </td>
@@ -74,7 +74,7 @@
                                     {{ ${{modelNameSingularLowerCaseFirst}}->created_at->format('d/m/Y H:i') }}
                                 </td>
                                 <td class="column-body text-right pr-4">
-                                    <form action="{{ action('{{actionPrefix}}{{modelNamePlural}}Controller@destroy', ${{modelNameSingularLowerCaseFirst}}) }}"
+                                    <form action="{{ action('\App\Http\Controllers\{{actionPrefix}}{{modelNamePlural}}Controller@destroy', ${{modelNameSingularLowerCaseFirst}}) }}"
                                           method="post">
                                         @csrf
                                         @method('DELETE')
