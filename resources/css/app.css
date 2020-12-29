@@ -1,7 +1,6 @@
-@import 'tailwindcss/base';
-
 @import url('https://fonts.googleapis.com/css2?family=Ovo&family=Quattrocento+Sans:wght@400;700&display=swap');
 
+@import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
@@ -15,7 +14,7 @@
 
 	/* Buttons */
 	.button {
-		@apply inline-block px-6 py-2 text-base font-bold leading-normal text-center no-underline whitespace-no-wrap align-middle rounded select-none  transition duration-300 ease-in-out
+		@apply inline-block px-6 py-2 text-base font-bold leading-normal text-center no-underline whitespace-nowrap align-middle rounded select-none  transition duration-300 ease-in-out
 	}
 
 	.button:hover {

@@ -23,7 +23,7 @@ class {{modelNamePlural}}Controller extends Controller
 	{
 		$statuses = {{modelName}}::STATUSES;
         		
-        return view('{{folderPrefix}}{{modelNamePluralSnakeCase}}.create')-with([
+        return view('{{folderPrefix}}{{modelNamePluralSnakeCase}}.create')->with([
             'statuses' => $statuses,
         ]);
 	}
@@ -48,7 +48,7 @@ class {{modelNamePlural}}Controller extends Controller
 	{
 		$statuses = {{modelName}}::STATUSES;
                 		
-        return view('{{folderPrefix}}{{modelNamePluralSnakeCase}}.edit')-with([
+        return view('{{folderPrefix}}{{modelNamePluralSnakeCase}}.edit')->with([
             '{{modelNameSingularLowerCaseFirst}}' => ${{modelNameSingularLowerCaseFirst}},
             'statuses' => $statuses,
         ]);

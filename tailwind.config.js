@@ -35,8 +35,4 @@ module.exports = {
 		}),
 		require('autoprefixer'),
 	],
-	future: {
-		removeDeprecatedGapUtilities: true,
-		purgeLayersByDefault: true,
-	},
 }
